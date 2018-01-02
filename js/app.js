@@ -11,18 +11,25 @@ const periodicTable = new Vue({
 				results = res.data.elements;
 				
 				for (var i = 0; i < results.length; i++) {
-					this.elements = [...this.elements, results[i]];
-
 					if (results[i].number === 1) {
 						const emptyContent = "0,".repeat(15).split(",");
-						this.elements = [...this.elements, ...emptyContent];
+						this.elements = [results[i], ...emptyContent];
 					} else if (results[i].number === 4 || results[i].number === 12) {
 						const emptyContent = "0,".repeat(9).split(",");
-						this.elements = [...this.elements, ...emptyContent];
+						this.elements = [...this.elements, results[i], ...emptyContent];
+					} else if (results[i].number === 57 || results[i].number === 88) {
+						let count = 0;
+						let start = results[i].number;
+
+						for (var a = start; a < (start + 15); a++) {
+							// this.elements.push("-");
+						}
+					} else {
+						this.elements = [...this.elements, results[i]];
 					}
 				}
 
-				console.log(this.elements);
+				// console.log(this.elements);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -32,11 +39,5 @@ const periodicTable = new Vue({
 		showDetails(evt) {
 
 		},
-		// createRepetition(start, n, end) {
-		// 	const emptyContent = ('0,'.repeat(n)).split(',');
-		// 	const fullArr = [, ...emptyContent, end];
-		// 	console.log(fullArr);
-		// 	return fullArr;
-		// }
 	}
 });
