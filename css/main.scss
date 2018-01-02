@@ -1,0 +1,19 @@
+.self-container {
+	max-width: 1440px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.list-group {
+	display: grid;
+	grid-template-columns: repeat(18, 5.5%); /* three columns  */
+	grid-template-rows: repeat(7, 5.5%); /* two rows  */
+	grid-gap: 10px;
+	background-color: #fff;
+	color: #444;
+	overflow: scroll;
+
+	&-item-action {
+		text-align: center;
+	}
+}
