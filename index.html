@@ -13,6 +13,7 @@
 		<div class="list-group mb-5 outer-group">
 			<button class="list-group-item list-group-item-action" v-for="el in elements" v-on:click="showDetails">
 				{{ el.symbol }}
+				{{ el.name }}
 				<div class="card mt-2"  v-if="show">
 					<div class="card-body">
 						<div class="card-text">
